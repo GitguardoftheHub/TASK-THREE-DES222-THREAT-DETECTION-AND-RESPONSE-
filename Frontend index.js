@@ -17,6 +17,10 @@ let homeNav = document.getElementById('homeNav');
 let homeButton = document.getElementById('homeButton');
 let description = document.getElementById('descriptionPanel');
 
+// Add these missing element lookups
+let cameraPanel = document.getElementById('cameraPanel');
+let photoPanel = document.getElementById('photoPanel');
+
 
 function clearphoto() {
     const context = canvas.getContext("2d");
@@ -132,26 +136,42 @@ function resizeCameraExample() {
 }
 
   
-takePhotoButton.addEventListener(
-    "click",
-    (ev) => {
-        takepicture();
-        ev.preventDefault();
-    },
-    false,
-);
+if (takePhotoButton) {
+    takePhotoButton.addEventListener(
+        "click",
+        (ev) => {
+            takepicture();
+            ev.preventDefault();
+        },
+        false,
+    );
+} else {
+    console.warn('takePhotoButton not found in DOM');
+}
 
+if (requestButton) {
+    requestButton.addEventListener(
+        "click",
+        async (ev) => {
+            try {
+                await setupCameraExample();
+                requestButton.setAttribute('style', 'display: none;');
+                if (cameraPanel) cameraPanel.setAttribute('style', 'display: flex;');
+                else console.warn('cameraPanel not found in DOM');
+            } catch (err) {
+                console.error('Failed to start camera:', err);
+                alert('Could not start camera. See console for details.');
+            }
+        }
+    );
+} else {
+    console.warn('requestButton not found in DOM');
+}
 
-requestButton.addEventListener(
-    "click",
-    async (ev) => {
-        await setupCameraExample();
-        requestButton.setAttribute('style', 'display: none;');
-        cameraPanel.setAttribute('style', 'display: flex;');
-    }
-);
-
-
-homeButton.addEventListener('click', (event) => {
-    showLiveCameraView();
-});
+if (homeButton) {
+    homeButton.addEventListener('click', (event) => {
+        showLiveCameraView();
+    });
+} else {
+    console.warn('homeButton not found in DOM');
+}
