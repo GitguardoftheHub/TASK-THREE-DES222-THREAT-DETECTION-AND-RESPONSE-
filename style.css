@@ -1,0 +1,109 @@
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#homeNav {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    z-index: 1;
+    display: none;
+    flex-direction: row;
+    justify-content: left;
+    font-size: 3rem;
+}
+
+#startPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 80vw;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+#requestButton {
+    height: 75%;
+    width: 75%;
+    font-size: 3rem;
+}
+
+#cameraPanel {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(8, 47, 8);
+}
+
+#photoPanel {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(8, 47, 8);
+  color: white;
+  font-size: 2em;
+  font-family: monospace;
+}
+
+#descriptionPanel {
+  padding: 1rem;
+}
+
+#video {
+  width: 100%;
+}
+  
+#photo {
+  width: 100%;
+}
+  
+#canvas {
+  display: none;
+}
+  
+.camera {
+  width: 95vw;
+  display: inline-block;
+}
+  
+.output {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+#takePhotoButton {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 3rem;
+  background-color: rgb(0 150 0 / 50%);
+  border: 1px solid rgb(255 255 255 / 70%);
+  box-shadow: 0px 0px 1px 2px rgb(0 0 0 / 20%);
+  font-size: 2rem;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  color: rgb(255 255 255 / 100%);
+}
